@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+  </head>
+  <body>
+    <script>
+      let nota1 = parseInt(prompt('Ingrese la primera calificacion'))
+        let nota2 = parseInt(prompt('Ingrese la segunda calificacion'))
+        let nota3 = parseInt(prompt('Ingrese la tercera calificacion'))
+
+        let promedio = (nota1 + nota2 + nota3) / 3;
+
+        let promRound = Math.round(promedio)
+        if(promRound >= 50){
+            document.write(`Su calificación es: ${promRound} Aprobó `);
+        }else{
+            document.write(`Su calificación es: ${promRound} Reprobó `);
+        }
+    </script>
+  </body>
+</html>

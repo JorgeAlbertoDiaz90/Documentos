@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    
+</head>
+  
+<body>
+    <div class="container">
+        <h1>Vamos a jugar</h1>
+  
+        <div class="dice">
+            <p class="Player1">Jugador 1</p>
+            <img class="img1" src="dice6.png">
+        </div>
+  
+        <div class="dice">
+            <p class="Player2">Jugador 2</p>
+            <img class="img2" src="dice6.png">
+        </div>
+
+        <div class="dice">
+            <p class="Player3">Jugador 3</p>
+            <img class="img3" src="dice6.png">
+        </div>
+       
+    </div>
+
+  
+    <div class="container bottom">
+        <button type="button" class="butn"
+            onClick="rollTheDice()">
+            Girar dados!
+        </button>
+    </div>
+    <div class="container bottom">
+        <button type="button" class="butn" 
+            onClick="editNames()">
+            Editar Nombres
+        </button>
+    </div>
+
+    <script>
+  
+        var player1 = "Player 1";
+        var player2 = "Player 2";
+        var player3 = "Player 3";
+        
+      
+        function editNames() {
+            player1 = prompt("Change Player1 name");
+            player2 = prompt("Change player2 name");
+            player3 = prompt("Change player3 name");
+          
+      
+            document.querySelector("p.Player1").innerHTML = player1;
+            document.querySelector("p.Player2").innerHTML = player2;
+            document.querySelector("p.Player3").innerHTML = player3;
+            
+        }
+      
+       
+        function rollTheDice() {
+            setTimeout(function () {
+                var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+                var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+                var randomNumber3 = Math.floor(Math.random() * 6) + 1;
+                
+      
+                document.querySelector(".img1").setAttribute("src",
+                    "dice" + randomNumber1 + ".png");
+      
+                document.querySelector(".img2").setAttribute("src",
+                    "dice" + randomNumber2 + ".png");
+                    
+                document.querySelector(".img3").setAttribute("src",
+                    "dice" + randomNumber3 + ".png");
+
+              
+      
+                if (randomNumber1 === randomNumber2) {
+                    document.querySelector("h1").innerHTML = "Draw!";
+                }
+                if (randomNumber1 === randomNumber3) {
+                    document.querySelector("h1").innerHTML = "Draw!";
+                }
+                if (randomNumber2 === randomNumber3) {
+                    document.querySelector("h1").innerHTML = "Draw!";
+                }
+                
+      
+                else if (randomNumber3 < randomNumber2) {
+                    document.querySelector("h1").innerHTML
+                                    = (player2 + " WINS!");
+                }
+                else if (randomNumber1 < randomNumber3) {
+                    document.querySelector("h1").innerHTML
+                                    = (player3 + " WINS!");
+                }
+                else if (randomNumber3 < randomNumber1) {
+                    document.querySelector("h1").innerHTML
+                                    = (player1 + " WINS!");
+                }
+                else if (randomNumber2 < randomNumber1) {
+                    document.querySelector("h1").innerHTML
+                                    = (player1 + " WINS!");
+                }
+                else {
+                    document.querySelector("h1").innerHTML
+                                    = (player1 + " WINS!");
+                }
+            }, 2500);
+        }
+    </script>
+    
+
+</body>
+  
+</html>
